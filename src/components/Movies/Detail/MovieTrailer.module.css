@@ -1,0 +1,11 @@
+.trailer {
+  width: 100%;
+  text-align: center;
+}
+
+.trailer p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: left;
+  padding: 1rem 4rem;
+}

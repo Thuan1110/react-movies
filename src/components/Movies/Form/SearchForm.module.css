@@ -1,0 +1,22 @@
+.form {
+  width: 100%;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.form input {
+  width: 50%;
+  height: 3rem;
+  font-size: 24px;
+  line-height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+
+
+.form input::placeholder {
+  opacity: 0.4;
+}

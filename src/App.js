@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import Loader from "./components/UI/Loader";
+import ScrollToTop from "./components/UI/ScrollToTop";
 
-function App() {
+const Home = React.lazy(() => import("./pages/Home"));
+const Movies = React.lazy(() => import("./pages/Movies"));
+const TvShows = React.lazy(() => import("./pages/TV"));
+const Search = React.lazy(() => import("./pages/Search"));
+const Detail = React.lazy(() => import("./pages/Detail"));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense
+      fallback={
+        <div className="centered">
+          <Loader />
+        </div>
+      }
+    >
+      <Layout>
+        <ScrollToTop>
+          <Routes>
+            <Route path="/" element={<Navigate replace to="/home" />} />
+            <Route path="/home" element={<Home />} />
+
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/:category/:id" element={<Detail />} />
+            <Route path="/tvs" element={<TvShows />} />
+            <Route path="/search" element={<Search />} />
+          </Routes>
+        </ScrollToTop>
+      </Layout>
+    </Suspense>
   );
-}
+};
 
 export default App;

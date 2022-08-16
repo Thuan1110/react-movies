@@ -1,0 +1,27 @@
+.item img {
+  width: 100%;
+  height: 85%;
+  border-radius: inherit;
+}
+
+.item p {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: start;
+}
+
+.item .card {
+  width: 220px;
+  height: 400px;
+}
+
+.item:hover {
+  transition: 0.3s ease-in-out;
+  margin-top: -10px;
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: #dbdbdb;
+}

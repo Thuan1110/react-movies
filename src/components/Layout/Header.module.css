@@ -1,0 +1,48 @@
+.header {
+  width: 100%;
+  height: 5rem;
+  padding: 0 4%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+}
+
+.scrolled {
+  background-color: #330a67;
+  opacity: 0.9;
+  transition: 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.logo {
+  color: #e50914;
+  font-size: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav li {
+  margin: 1rem;
+  font-size: 1.25rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav a:hover,
+.nav a:active,
+.nav a.active {
+  border-bottom: 2px solid #e50914;
+  top: 10px;
+}

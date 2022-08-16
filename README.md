@@ -16,6 +16,8 @@ This project is mainly for practice on how to use hooks, make api calls to get d
 
 [react](https://reactjs.org/)  v17.0.2
 
+[react-router-dom](https://reactrouter.com/) v6
+
 [swiper](https://swiperjs.com/)  v8.3.2
 
 [react-youtube](https://github.com/tjallingt/react-youtube) v9.0.3

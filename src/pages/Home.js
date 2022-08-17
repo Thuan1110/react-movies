@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
-import MoviesList from "../components/Movies/List/MoviesList";
+import React, { useEffect, useState } from "react";
 import MovieSlider from "../components/Movies/List/MovieSlider";
+import MoviesList from "../components/Movies/List/MoviesList";
 import { API_KEY, BASE_URL } from "../config/api-config";
 import { category, movieType } from "../config/movie-type";
+import useFetch from "../hooks/use-fetch";
 
 const Home = () => {
   const [moviesSlider, setMoviesSlider] = useState([]);
@@ -10,101 +11,30 @@ const Home = () => {
   const [moviesTopRated, setMoviesTopRated] = useState([]);
   const [tvPopular, setTvPopular] = useState([]);
   const [tvTopRated, setTvTopRated] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
-  const fetchMovies = useCallback(async () => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(
-        `${BASE_URL}/${category.movie}/${movieType.popular}?api_key=${API_KEY}&language=en-US&page=1`
-      );
+  const { dataList, error, isLoading } = useFetch(
+    `${BASE_URL}/${category.movie}/${movieType.popular}?api_key=${API_KEY}&language=en-US`
+  );
 
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
+  const { dataList: moviesTopRate } = useFetch(
+    `${BASE_URL}/${category.movie}/${movieType.topRated}?api_key=${API_KEY}&language=en-US`
+  );
 
-      const data = await response.json();
-      const firstFiveMovies = data.results.slice(0, 5);
-      const fivePopularMovies = data.results.slice(5, 11);
-      setMoviesSlider(firstFiveMovies);
-      setMoviesPopular(fivePopularMovies);
-    } catch (err) {
-      setError(err.message);
-    }
-    setIsLoading(false);
-  }, []);
+  const { dataList: tvsPopular } = useFetch(
+    `${BASE_URL}/${category.tv}/${movieType.popular}?api_key=${API_KEY}&language=en-US`
+  );
 
-  const fetchTopRatedMovies = useCallback(async () => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(
-        `${BASE_URL}/${category.movie}/${movieType.topRated}?api_key=${API_KEY}&language=en-US&page=1`
-      );
-
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
-
-      const data = await response.json();
-      const fiveTopRatedMovies = data.results.slice(0, 6);
-      setMoviesTopRated(fiveTopRatedMovies);
-    } catch (err) {
-      setError(err.message);
-    }
-    setIsLoading(false);
-  }, []);
-
-  const fetchPopularTv = useCallback(async () => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(
-        `${BASE_URL}/${category.tv}/${movieType.popular}?api_key=${API_KEY}&language=en-US&page=1`
-      );
-
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
-
-      const data = await response.json();
-      const firstFivePopularTv = data.results.slice(0, 6);
-      setTvPopular(firstFivePopularTv);
-    } catch (err) {
-      setError(err.message);
-    }
-    setIsLoading(false);
-  }, []);
-
-  const fetchTopRatedTv = useCallback(async () => {
-    setIsLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(
-        `${BASE_URL}/${category.tv}/${movieType.topRated}?api_key=${API_KEY}&language=en-US&page=1`
-      );
-
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
-
-      const data = await response.json();
-      const firstFiveTopRatedTv = data.results.slice(6, 12);
-      setTvTopRated(firstFiveTopRatedTv);
-    } catch (err) {
-      setError(err.message);
-    }
-    setIsLoading(false);
-  }, []);
+  const { dataList: tvsTopRate } = useFetch(
+    `${BASE_URL}/${category.tv}/${movieType.topRated}?api_key=${API_KEY}&language=en-US`
+  );
 
   useEffect(() => {
-    fetchMovies();
-    fetchTopRatedMovies();
-    fetchPopularTv();
-    fetchTopRatedTv();
-  }, [fetchMovies, fetchTopRatedMovies, fetchPopularTv, fetchTopRatedTv]);
+    setMoviesSlider(dataList);
+    setMoviesPopular(dataList);
+    setMoviesTopRated(moviesTopRate);
+    setTvPopular(tvsPopular);
+    setTvTopRated(tvsTopRate);
+  }, [dataList, moviesTopRate, tvsPopular, tvsTopRate]);
 
   return (
     <React.Fragment>

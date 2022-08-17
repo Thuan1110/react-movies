@@ -9,7 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## General info
 
 ```
-This project is mainly for practice on how to use hooks, make api calls to get datas and pass datas through components in ReactJS
+This project is mainly for practice on how to use hooks, create custom hooks, make api calls to get datas and pass datas through components in ReactJS
 ```
 
 ## Frameworks/libraries

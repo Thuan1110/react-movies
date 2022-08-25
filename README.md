@@ -25,6 +25,12 @@ This project is mainly for practice on how to use hooks, create custom hooks, ma
 ## API
 [The Movie Database API](https://www.themoviedb.org/) 
 
+## Features
+- View list of movies
+- Search movies
+- View details of the movie
+- Watch trailer of the movie
+
 ## Setup
 In the project directory, you can run:
 

@@ -55,7 +55,7 @@ const Search = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <SearchForm
         enteredText={enteredText}
         setEnteredText={setEnteredText}
@@ -80,7 +80,7 @@ const Search = () => {
           )}
         </>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

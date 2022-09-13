@@ -14,7 +14,7 @@ const TV = () => {
     setTvShows(dataGrid);
   }, [dataGrid]);
   return (
-    <React.Fragment>
+    <>
       {error && <div className="centered">{error}</div>}
       {tvShows.length > 0 && (
         <MoviesGrid movies={tvShows} category={category.tv} />
@@ -27,7 +27,7 @@ const TV = () => {
           </button>
         )}
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

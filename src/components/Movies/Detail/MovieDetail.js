@@ -32,7 +32,7 @@ const MovieDetail = (props) => {
   ));
 
   return (
-    <React.Fragment>
+    <>
       <div className={styles.background}>
         <img src={backDropPath} alt="" />
       </div>
@@ -63,7 +63,7 @@ const MovieDetail = (props) => {
           <div className={styles.casts}>{castsList}</div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

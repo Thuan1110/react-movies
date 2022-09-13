@@ -37,7 +37,7 @@ const Home = () => {
   }, [dataList, moviesTopRate, tvsPopular, tvsTopRate]);
 
   return (
-    <React.Fragment>
+    <>
       {error && <div className="centered">{error}</div>}
       {!isLoading && (
         <div>
@@ -68,7 +68,7 @@ const Home = () => {
           />
         </div>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

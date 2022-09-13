@@ -16,7 +16,7 @@ const Movies = () => {
   }, [dataGrid]);
 
   return (
-    <React.Fragment>
+    <>
       {error && <div className="centered">{error}</div>}
       {movies.length > 0 && (
         <MoviesGrid movies={movies} category={category.movie} />
@@ -29,7 +29,7 @@ const Movies = () => {
           </button>
         )}
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

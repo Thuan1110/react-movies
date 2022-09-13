@@ -14,14 +14,12 @@
   width: 100%;
   top: 2rem;
   display: flex;
-  /* text-align: center; */
-  /* left: 0; */
 }
 .overview {
   width: 100%;
   height: auto;
   margin: 0 5rem;
-  max-width: 40%;
+  max-width: 50%;
 }
 .title {
   height: 15rem;

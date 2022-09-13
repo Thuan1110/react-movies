@@ -122,7 +122,7 @@ const Detail = () => {
   }, [fetchCasts, fetchMovieDetail, fetchSimilarMovies]);
 
   return (
-    <React.Fragment>
+    <>
       {error && <div className="centered">{error}</div>}
       {isLoading && (
         <div className="centered">
@@ -147,7 +147,7 @@ const Detail = () => {
           />
         </>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

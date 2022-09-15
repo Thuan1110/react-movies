@@ -15,7 +15,7 @@ This project is mainly for practice on how to use hooks, create custom hooks, ma
 ## Description
 
 ```
-Build a React movies app with API, allow users to search or view details of the movie
+Build a movies app with React and API to search or view details of the movie
 ```
 
 ## Demo

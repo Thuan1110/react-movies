@@ -12,6 +12,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This project is mainly for practice on how to use hooks, create custom hooks, make api calls to get datas and pass datas through components in ReactJS
 ```
 
+## Description
+
+```
+Build a React movies app with API, allow users to search or view details of the movie
+```
+
+## Demo
+
+https://thuan1110.github.io/react-movies/
+
 ## Frameworks/libraries
 
 [react](https://reactjs.org/)  v17.0.2
